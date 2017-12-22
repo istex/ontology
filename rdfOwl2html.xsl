@@ -25,6 +25,7 @@
              v2 : 02/10/2017
              v3 : 01/12/2017
              v4 : 04/12/2017
+             v5 : 22/12/2017
     =======================================================================================-->
     
     <xsl:template match="/" xml:space="default">
@@ -54,7 +55,7 @@
                             <p>Ontologie du projet ISTEX pour le triple store Triplex</p>
                             <!-- attention mettre à jour le nbre de classes et de propriétés lors de chaque rechargement -->
                             <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(.,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(.,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(.,'istex')])"/> Data Properties.</p>
-                            <a class="btn" href="https://github.com/Inist-CNRS/data.istex.fr/tree/master/ontology"><span>Disponible sur GitHub</span></a>
+                            <a class="btn" href="https://github.com/istex/ontology/blob/master/istexXML.owl"><span>Disponible sur GitHub</span></a>
                         </div>
                         <!-- ajouter logo triplex--> 
                         <div class="logo"><img alt="" src="../img/lodex.png"/></div>
