@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://data.istex.fr/ontology/istex#"
+     xml:base="https://data.istex.fr/ontology/istex"
+     xmlns:schema="http://schema.org/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="https://data.istex.fr/ontology/istex#">
+        <owl:versionIRI rdf:resource="https://data.istex.fr/ontology/istex"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
+        <owl:imports rdf:resource="http://purl.org/ontology/bibo/"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:label xml:lang="fr">Ontologie du projet Istex pour le triple store Triplex</rdfs:label>
+        <rdfs:comment xml:lang="fr">v 1.5 22-12-2017 Ajout de la propriété istex:subjectScopus
+Ajout de la classe istex:ScopusConcept
+
+v 1.4 16-10-2017 Ajout de la propriété istex:identityProvider
+Suppression de istex:catalog
+Suppression de istex:SoftwareApplication
+Ajout commentaires niveau Classe et Object Properties
+Ajout de la classe istex:NamedEntityConcept
+Ajout de la classe istex:EnrichmentProcessConcept
+Ajout de l'object property istex:enrichmentProcess
+
+V 1.3 22-09-2017 Ajout de la propriété istex:accessURL
+Ajout de la propriété istex:subjectLabel
+Ajout de la propriété istex:catalog
+Ajout de la Classe istex:SoftwareApplication + ajout range à istex:enrichmentType et istex:constraint
+Ajout de la Classe istex:PublisherConcept
+Suppression domaine istex:query + ajout range xsd:anyURI au lieu de rdfs:literal
+
+V 1.2 22-06-2017 Changement uri pour passer à https://data.istex.fr/ontology/istex
+Ajouté la propriété istex:query
+Ajouté les propriétés  schema:endDate et schema:startDate ainsi que la classe dct:PeriodOfTime et la propriété dct:temporal pour décrire la période de couverture des lots de chargement
+Ajouté la propriété istex:affiliation (existe dans MODS XML mais pas dans MODS OWL)
+Ajouté la propriété quantityOfItems pour décrire le nombre de titres présents dans chaque corpus ISTEX
+
+V 1.1 12-04-2017 Ajout de la classe dcterms:LinguisticSystem - les valeurs de dcterms:language sont des instances de la classe LinguisticSystem
+
+V 1.0 11-04-2017 Première version de l&apos;ontologie basée sur bibo, skos et prov-o</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/language -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/language"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/requires -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/requires"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/type -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/type">
+        <rdfs:comment xml:lang="en">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element. The nature or genre of the resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#contentType -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#contentType">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#ContentTypeConcept"/>
+        <rdfs:comment xml:lang="fr">Type de contenus répertoriés dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:contentType</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#enrichmentProcess -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#enrichmentProcess">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#EnrichmentProcessConcept"/>
+        <rdfs:comment xml:lang="fr">Processus de fabrication des enrichissements</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:enrichmentProcess</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#extractedEntity -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#extractedEntity">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Entité nommée extraite du plein texte des document ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:extractedEntity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#extractedGeog -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#extractedGeog">
+        <rdfs:subPropertyOf rdf:resource="https://data.istex.fr/ontology/istex#extractedEntity"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#GeographicConcept"/>
+        <rdfs:comment xml:lang="fr">Entité géographique physique extraite du plein texte des documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:extractedGeog</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#extractedOrganization -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#extractedOrganization">
+        <rdfs:subPropertyOf rdf:resource="https://data.istex.fr/ontology/istex#extractedEntity"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#OrganizationConcept"/>
+        <rdfs:comment xml:lang="fr">Entité organisationnelle extraite du plein texte des documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:extractedOrganization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#extractedPlace -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#extractedPlace">
+        <rdfs:subPropertyOf rdf:resource="https://data.istex.fr/ontology/istex#extractedEntity"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#PlaceConcept"/>
+        <rdfs:comment xml:lang="fr">Entité géographique administrative extraite du plein texte des documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:extractedPlace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#publicationType -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#publicationType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#PublicationTypeConcept"/>
+        <rdfs:comment xml:lang="fr">Type de publication catégorisé dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:publicationType</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#subjectInist -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#subjectInist">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/subject"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#InistConcept"/>
+        <rdfs:comment xml:lang="fr">Indique la ou les catégorie(s) Inist du document</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:subjectInist</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#subjectScienceMetrix -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#subjectScienceMetrix">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/subject"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#ScienceMetrixConcept"/>
+        <rdfs:comment xml:lang="fr">Indique la ou les catégorie(s) Science Metrix du document</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:subjectScienceMetrix</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#subjectWos -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#subjectWos">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/subject"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#WosConcept"/>
+        <rdfs:comment xml:lang="fr">Indique la ou les catégorie(s) Web of Science du document</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:subjectWos</rdfs:label>
+    </owl:ObjectProperty>
+    
+    
+     <!-- https://data.istex.fr/ontology/istex#subjectScopus -->
+
+    <owl:ObjectProperty rdf:about="https://data.istex.fr/ontology/istex#subjectScopus">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/subject"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="https://data.istex.fr/ontology/istex#ScopusConcept"/>
+        <rdfs:comment xml:lang="fr">Indique la ou les catégorie(s) Scopus du document</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:subjectScopus</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/bibo/identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/bibo/identifier">
+        <rdfs:label>bibo:identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/endDate -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/endDate">
+        <rdfs:domain rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="fr">The end date and time of the item (in ISO 8601 date format).</rdfs:comment>
+        <rdfs:label xml:lang="en">schema:endDate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/startDate -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/startDate">
+        <rdfs:domain rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="fr">The start date and time of the item (in ISO 8601 date format).</rdfs:comment>
+        <rdfs:label xml:lang="en">schema:startDate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#accessURL -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#accessURL">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="fr">Lien direct vers le document en format PDF</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:accessURL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#affiliation -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#affiliation">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Décrit l&apos;affiliation d&apos;un auteur ou d&apos;un organisme.</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:affiliation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#constraint -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#constraint">
+        <rdfs:domain rdf:resource="https://data.istex.fr/ontology/istex#EnrichmentProcessConcept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Les contraintes d&apos;utilisation du processus d&apos;enrichissement</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:constraint</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#enrichmentType -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#enrichmentType">
+        <rdfs:domain rdf:resource="https://data.istex.fr/ontology/istex#EnrichmentProcessConcept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Indique le type d&apos;enrichissement créé.</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:enrichmentType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#idIstex -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#idIstex">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/ontology/bibo/identifier"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="fr">Identifiant Istex de l&apos;objet documentaire.</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:idIstex</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#quantityOfItems -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#quantityOfItems">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Indique le nombre de titres bibliographiques par corpus ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:quantityOfItems</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#query -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#query">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Indique la requête (API) à réaliser pour accéder aux documents indexés par le concept décrit. Cette API permet de récupérer les documents et le nombre de documents. Préfixer la requête avec &quot;https://api.istex.fr/document/?q=&quot; pour activer l&apos;API.</rdfs:comment>
+        <rdfs:label>istex:query</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#subjectLabel -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#subjectLabel">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Indique la ou les catégorie(s) du document</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:subjectLabel</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- istex:identityProvider -->
+
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#identityProvider">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="fr">Indique le nom du fournisseur d&apos;identité pour le jeu organization-list</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:identityProvider</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/LinguisticSystem -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/LinguisticSystem">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">A system of signs, symbols, sounds, gestures, or rules used in communication.</rdfs:comment>
+        <rdfs:label xml:lang="en">dcterms:LinguisticSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/Location -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/Location">
+        <rdfs:comment xml:lang="en">A spatial region or named place.</rdfs:comment>
+        <rdfs:label xml:lang="en">dcterms:Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/PeriodOfTime -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/PeriodOfTime">
+        <rdfs:comment xml:lang="en">An interval of time that is named or defined by its start and end dates.</rdfs:comment>
+        <rdfs:label xml:lang="en">dcterms:PeriodOfTime</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Document -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Document">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/language"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/dc/terms/LinguisticSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <owl:someValuesFrom rdf:resource="https://data.istex.fr/ontology/istex#ContentTypeConcept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>bibo:document</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#ContentTypeConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#ContentTypeConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des types de contenus représentés dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:ContentTypeConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#EnrichmentProcessConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#EnrichmentProcessConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des processus d&apos;enrichissements des documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:EnrichmentProcessConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#GeographicConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#GeographicConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des entités nommées de nature géographique référencées dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:GeographicConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#InistConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#InistConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des codes de classement Inist (Pascal et Francis)</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:InistConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#NamedEntityConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#NamedEntityConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des entités nommées en général répertoriées dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:NamedEntityConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#OrganizationConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#OrganizationConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des types d&apos;organisations</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:OrganizationConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#PlaceConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#PlaceConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des entités nommées de type lieux référencées dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:PlaceConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#PublicationTypeConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#PublicationTypeConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des types de publication représentés dans les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:PublicationTypeConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#PublisherConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#PublisherConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des éditeurs (publishers) en lien avec les documents ISTEX</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:PublisherConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#ScienceMetrixConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#ScienceMetrixConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Science Metrix</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:ScienceMetrixConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://data.istex.fr/ontology/istex#WosConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#WosConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Web of Science</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:WosConcept</rdfs:label>
+    </owl:Class>
+    
+    <!-- https://data.istex.fr/ontology/istex#ScopusConcept -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#ScopusConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Scopus</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:ScopusConcept</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
