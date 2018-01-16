@@ -26,6 +26,7 @@
              v3 : 01/12/2017
              v4 : 04/12/2017
              v5 : 22/12/2017
+             v6 : 16/01/2018
     =======================================================================================-->
     
     <xsl:template match="/" xml:space="default">
@@ -80,7 +81,7 @@
                         <li style="padding-bottom:10px"><a href="http://www.geonames.org/ontology/documentation.html"> GeoNames: </a><i>ajoute des informations sémantiques géospatiales au W3C</i></li>
                     </ul>
                 </section>--> 
-                <section class="summary">
+                <section class="summary" style="padding-bottom:10px">
                     <h2>Ontologies importées</h2>
                     <ul>
                         <li><a href="#bibo"><span>BIBO</span></a></li>
@@ -106,6 +107,8 @@
                         <xsl:apply-templates select="owl:DatatypeProperty"/>
                     </ul>
                 </section>
+                <!-- schema et définitions des classes / objectsproperties et dataproperties -->
+                <p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"></p>
                 <!-- ontologies importées -->
                 <!-- SG - pour le moment imports des ontologies en dure -->
                 <h1>Ontologies importées</h1>
