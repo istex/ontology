@@ -535,6 +535,14 @@ V 1.0 11-04-2017 Première version de l&apos;ontologie basée sur bibo, skos et 
         <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Scopus</rdfs:comment>
         <rdfs:label xml:lang="en">istex:ScopusConcept</rdfs:label>
     </owl:Class>
+    
+    <!-- https://data.istex.fr/ontology/istex#ScientificDomain -->
+
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#ScientificDomain">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit les domaines scientifiques présents sur le site licence nationale.</rdfs:comment>
+        <rdfs:label xml:lang="en">istex:ScientificDomain</rdfs:label>
+    </owl:Class>
 </rdf:RDF>
 
 
