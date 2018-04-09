@@ -27,6 +27,7 @@
              v4 : 04/12/2017
              v5 : 22/12/2017
              v6 : 16/01/2018
+             v7 : 09/04/2018
     =======================================================================================-->
     
     <xsl:template match="/" xml:space="default">
@@ -40,15 +41,20 @@
                 <title>Ontologie ISTEX</title>
                 <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
                 <!-- <link rel="stylesheet" href="../css/style.css"> -->
-                <link rel="stylesheet" href="../css/doremus.css"/>
-                <script type="text/javascript" src="//content-delivery.istex.fr/web-header/main.js"/>
+                <link rel="stylesheet" href="/ontology/istex/doremus.css"/>
+                <!--<script type="text/javascript" src="//content-delivery.istex.fr/web-header/main.js"/>-->
+                <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Ontologie ISTEX</title>
             </head>
             <body>
                 <nav>
-                    <a href="..">data.istex.fr</a>
+                    <a href="http://data.istex.fr/">data.istex.fr</a>
                 </nav>
+                <div id="pageHead">
+                    <div id="istexTools">
+                        <img src="/img/istex_logo.svg" class="istexLogo" alt=""/>
+                    </div>
+                </div>
                 <section class="cover">
                     <div class="inside">
                         <div class="description">
@@ -59,7 +65,12 @@
                             <a class="btn" href="https://github.com/istex/ontology/blob/master/istexXML.owl"><span>Disponible sur GitHub</span></a>
                         </div>
                         <!-- ajouter logo triplex--> 
-                        <div class="logo"><img alt="" src="../img/lodex.png"/></div>
+                        <div class="logo">
+                            <a href="http://data.istex.fr">
+                                <img alt="logo data istex" src="/img/ic_Data_ISTEX-2.svg"/>
+                                    <div class="dataIstex">data.istex.fr</div>
+                            </a>
+                        </div>
                     </div>
                 </section>
                 <h1 style="padding-bottom:10px">Sommaire</h1>
@@ -108,72 +119,72 @@
                     </ul>
                 </section>
                 <!-- schema et définitions des classes / objectsproperties et dataproperties -->
-                <p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"></p>
+                <p style="text-align:center"><!--<img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720">--></p>
                 <!-- ontologies importées -->
                 <!-- SG - pour le moment imports des ontologies en dure -->
-                <h1>Ontologies importées</h1>
+                <h2>Ontologies importées</h2>
                 <section class="ontologyImports card">
                     <ul class="list">
                         <li>
-                            <h2 id="bibo"><a href="http://purl.org/ontology/bibo/">BIBO</a>
-                                <small><i><a href="http://purl.org/ontology/bibo/">http://purl.org/ontology/bibo/</a></i></small></h2>
+                            <h3 id="bibo"><a href="http://purl.org/ontology/bibo/">BIBO</a>
+                                <small><i><a href="http://purl.org/ontology/bibo/">http://purl.org/ontology/bibo/</a></i></small></h3>
                             <div><span>fournit les principaux concepts et propriétés pour décrire des références bibliographiques
                                 (livres, articles, etc.)</span>
                             </div>
                         </li>
                         <li>
-                            <h2 id="skos"><a href="http://www.w3.org/2004/02/skos/core">SKOS</a>
+                            <h3 id="skos"><a href="http://www.w3.org/2004/02/skos/core">SKOS</a>
                                 <small><i><a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>est un modèle de données commun pour le partage et la liaison de systèmes d'organisation</span></div>
                         </li>
                         <li>
-                            <h2 id="dcat"><a href="http://www.w3.org/ns/dcat">DCAT</a>
+                            <h3 id="dcat"><a href="http://www.w3.org/ns/dcat">DCAT</a>
                                 <small><i><a href="http://www.w3.org/ns/dcat">http://www.w3.org/ns/dcat</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>conçu pour faciliter l'interopérabilité entre les catalogues de données publiés sur
                                 le Web</span></div>
                         </li>
                         <li>
-                            <h2 id="dcterms"><a href="http://purl.org/dc/terms/">DCTERMS</a>
+                            <h3 id="dcterms"><a href="http://purl.org/dc/terms/">DCTERMS</a>
                                 <small><i><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>ensemble de termes de vocabulaire utilisés pour décrire des ressources à des fins de découverte</span></div>
                         </li>
                         <li>
-                            <h2 id="prov"><a href="http://www.w3.org/ns/prov">PROV</a>
+                            <h3 id="prov"><a href="http://www.w3.org/ns/prov">PROV</a>
                                 <small><i><a href="http://www.w3.org/ns/prov">http://www.w3.org/ns/prov</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>décrit les informations de provenance sur le web</span></div>
                         </li>
                         <li>
-                            <h2 id="schema"><a href="http://schema.org">SCHEMA</a>
+                            <h3 id="schema"><a href="http://schema.org">SCHEMA</a>
                                 <small><i><a href="http://schema.org">http://schema.org</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>a pour mission de créer, maintenir et promouvoir des schémas pour des données structurées
                                 sur le Web</span></div>
                         </li>
                         <li>
-                            <h2 id="foaf"><a href="http://xmlns.com/foaf/0.1/">FOAF</a>
+                            <h3 id="foaf"><a href="http://xmlns.com/foaf/0.1/">FOAF</a>
                                 <small><i><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>décrit des personnes et les relations qu'elles entretiennent entre elles</span></div>
                         </li>
                         <li>
-                            <h2 id="lom"><a href="http://www.lom-fr.fr/ontologies/lomfr-1/">IEEE LOM</a>
+                            <h3 id="lom"><a href="http://www.lom-fr.fr/ontologies/lomfr-1/">IEEE LOM</a>
                                 <small><i><a href="http://www.lom-fr.fr/ontologies/lomfr-1/">http://data.opendiscoveryspace.eu/lom_ontology_ods.owl</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>décrit des ressources pédagogiques</span></div>
                         </li>
                         <li>
-                            <h2 id="geonames"><a href="http://www.geonames.org/ontology/documentation.html">GEONAMES</a>
+                            <h3 id="geonames"><a href="http://www.geonames.org/ontology/documentation.html">GEONAMES</a>
                                 <small><i><a href="http://www.geonames.org/ontology/documentation.html">http://www.geonames.org/ontology/documentation.html</a></i></small>
-                            </h2>
+                            </h3>
                             <div><span>ajoute des informations sémantiques géospatiales au W3C</span></div>
                         </li>
                     </ul>
                 </section>
-                <h1>Classes</h1>
+                <h2>Classes</h2>
                 <!-- mettre schema Classes + définition-->
                 <section class="classes card">
                     <ul class="list">
@@ -182,20 +193,69 @@
                 </section>
                 
                 <!-- a completer -->
-                <h1>Object Properties</h1>
+                <h2>Object Properties</h2>
                 <!-- mettre schema Object Prpoperties + définition-->
                 <section class="properties card">
                     <ul class="list">
                         <xsl:apply-templates select="owl:ObjectProperty" mode="OP2"/> 
                     </ul>
                 </section>
-                <h1>Data Properties</h1>
+                <h2>Data Properties</h2>
                 <!-- mettre schema Data Prpoperties + définition-->
                 <section class="properties card">
                     <ul class="list">
                         <xsl:apply-templates select="owl:DatatypeProperty" mode="DataP2"/> 
                     </ul>
                 </section>
+                <!-- mise en place du footer -->
+                <div id="pageFooter">
+                    
+                    <!-- services -->
+                    <div class="blocUp">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="twitter_feed_widget-2" class="widget widget_twitter_feed_widget">
+                                    <a class="twitter-timeline" href="https://twitter.com/Projet_ISTEX"
+                                        data-tweet-limit="1"
+                                        data-chrome="noheader nofooter noborders transparent noscrollbar"
+                                        >
+                                        Tweets de @Projet_ISTEX
+                                    </a>
+                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="text-center">
+                                    <a href="http://www.agence-nationale-recherche.fr/" title="CNRS" target="_blank">
+                                        <img src="/img/investissement_avenir.png" alt="ANR" title="Le site ANR"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="text-center">
+                                    <a href="http://www.cnrs.fr/" title="CNRS" target="_blank">
+                                        <img src="/img/cnrs130.png" alt="CNRS" title="Le site du CNRS"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services END -->
+                    <div class="blocUp">
+                        <div class="row">
+                            <div class="col-sm-4">           
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="text-center">
+                                    2018 data.istex.fr
+                                </div>              
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+                <!-- Footer - bloc-8 END -->
             </body>
         </html>
     </xsl:template>
@@ -251,7 +311,7 @@
     <xsl:template match="owl:Class" mode="classe2">
         <xsl:if test="contains(.,'istex')">
             <li>
-                <h2 id="{substring-after(@rdf:about,'#')}">
+                <h3 id="{substring-after(@rdf:about,'#')}">
                     <span>
                         <xsl:value-of select="substring-after(@rdf:about,'#')"/>
                     </span>
@@ -260,7 +320,7 @@
                             <xsl:value-of select="@rdf:about"/>
                         </small>
                     </a>
-                </h2>
+                </h3>
                 <ul class="features">
                     <xsl:if test="rdfs:comment">
                     <li>
@@ -308,7 +368,7 @@
     <xsl:template match="owl:ObjectProperty" mode="OP2">
         <xsl:if test="contains(.,'istex')">
             <li>
-                <h2 id="{substring-after(@rdf:about,'#')}">
+                <h3 id="{substring-after(@rdf:about,'#')}">
                     <span>
                         <xsl:value-of select="substring-after(@rdf:about,'#')"/>
                     </span>
@@ -317,7 +377,7 @@
                             <xsl:value-of select="@rdf:about"/>
                         </small>
                     </a>
-                </h2>
+                </h3>
                 <ul class="features">
                     <xsl:if test="rdfs:comment">
                         <li>
@@ -386,7 +446,7 @@
     <xsl:template match="owl:DatatypeProperty" mode="DataP2">
         <xsl:if test="contains(.,'istex')">
             <li>
-                <h2 id="{substring-after(@rdf:about,'#')}">
+                <h3 id="{substring-after(@rdf:about,'#')}">
                     <span>
                         <xsl:value-of select="substring-after(@rdf:about,'#')"/>
                     </span>
@@ -395,7 +455,7 @@
                             <xsl:value-of select="@rdf:about"/>
                         </small>
                     </a>
-                </h2>
+                </h3>
                 <ul class="features">
                     <xsl:if test="rdfs:comment">
                         <li>
@@ -496,4 +556,3 @@
         </a>
     </xsl:template>
 </xsl:stylesheet>
-    
