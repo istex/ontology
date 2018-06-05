@@ -28,6 +28,7 @@
              v5 : 22/12/2017
              v6 : 16/01/2018
              v7 : 09/04/2018
+             v8 : 06/06/2018
     =======================================================================================-->
     
     <xsl:template match="/" xml:space="default">
@@ -59,7 +60,7 @@
                     <div class="inside">
                         <div class="description">
                             <h1>Ontologie ISTEX</h1>
-                            <p>Ontologie du projet ISTEX pour le triple store Triplex</p>
+                            <p>Ontologie du projet ISTEX.</p>
                             <!-- attention mettre à jour le nbre de classes et de propriétés lors de chaque rechargement -->
                             <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(.,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(.,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(.,'istex')])"/> Data Properties.</p>
                             <a class="btn" href="https://github.com/istex/ontology/blob/master/istexXML.owl"><span>Disponible sur GitHub</span></a>
