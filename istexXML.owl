@@ -26,6 +26,13 @@
         <rdfs:label xml:lang="fr">Ontologie du projet Istex pour le triple store Triplex</rdfs:label>
         <rdfs:comment xml:lang="fr">v 1.6 30-01-2018 Ajout de la propriété istex:tool
 
+v 1.8 11-10-2018 Ajout de la propriété istex:publicationTitle
+Suppression de la propriété istex:bookTitle
+Suppression de la propriété istex:databaseTitle
+Suppression de la propriété istex:journalTitle
+Suppression de la propriété istex:referenceWorksTitle
+Suppression de la propriété istex:seriesTitle
+
 v 1.7 21-09-2018 Ajout de la propriété istex:bookTitle
 Ajout de la propriété istex:databaseTitle
 Ajout de la propriété istex:journalTitle
@@ -305,16 +312,6 @@ V 1.0 11-04-2017 Première version de l&apos;ontologie basée sur bibo, skos et 
     </owl:DatatypeProperty>
     
     
-    <!-- https://data.istex.fr/ontology/istex#bookTitle -->
-
-    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#bookTitle">
-        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <rdfs:comment xml:lang="fr">Indique le titre de la monographie hébergeant le document</rdfs:comment>
-        <rdfs:label xml:lang="en">istex:bookTitle</rdfs:label>
-    </owl:DatatypeProperty>
-    
-    
     <!-- https://data.istex.fr/ontology/istex#constraint -->
 
     <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#constraint">
@@ -333,16 +330,6 @@ V 1.0 11-04-2017 Première version de l&apos;ontologie basée sur bibo, skos et 
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
         <rdfs:comment xml:lang="fr">Indique le type d&apos;enrichissement créé.</rdfs:comment>
         <rdfs:label xml:lang="en">istex:enrichmentType</rdfs:label>
-    </owl:DatatypeProperty>
-    
-    
-    <!-- https://data.istex.fr/ontology/istex#databaseTitle -->
-
-    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#databaseTitle">
-        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <rdfs:comment xml:lang="fr">Indique le titre de la monographie hébergeant le document et appartenant à une base de données spécialisée dans un domaine donné</rdfs:comment>
-        <rdfs:label xml:lang="en">istex:databaseTitle</rdfs:label>
     </owl:DatatypeProperty>
     
     
@@ -366,13 +353,13 @@ V 1.0 11-04-2017 Première version de l&apos;ontologie basée sur bibo, skos et 
     </owl:DatatypeProperty>
     
     
-    <!-- https://data.istex.fr/ontology/istex#journalTitle -->
+    <!-- https://data.istex.fr/ontology/istex#publicationTitle -->
 
-    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#journalTitle">
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#publicationTitle">
         <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
         <rdfs:comment xml:lang="fr">Indique le titre du périodique hébergeant le document</rdfs:comment>
-        <rdfs:label xml:lang="en">istex:journalTitle</rdfs:label>
+        <rdfs:label xml:lang="en">istex:publicationTitle</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -393,26 +380,6 @@ V 1.0 11-04-2017 Première version de l&apos;ontologie basée sur bibo, skos et 
         <rdfs:comment xml:lang="fr">Indique la requête (API) à réaliser pour accéder aux documents indexés par le concept décrit. Cette API permet de récupérer les documents et le nombre de documents. Préfixer la requête avec &quot;https://api.istex.fr/document/?q=&quot; pour activer l&apos;API.</rdfs:comment>
         <rdfs:label>istex:query</rdfs:label>
     </owl:DatatypeProperty>
-    
-
-    <!-- https://data.istex.fr/ontology/istex#referenceWorksTitle -->
-
-    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#referenceWorksTitle">
-        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <rdfs:comment xml:lang="fr">Indique le titre de l'ouvrage de référence hébergeant le document</rdfs:comment>
-        <rdfs:label xml:lang="en">istex:referenceWorksTitle</rdfs:label>
-    </owl:DatatypeProperty>
-    
-    <!-- https://data.istex.fr/ontology/istex#seriesTitle -->
-
-    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#seriesTitle">
-        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <rdfs:comment xml:lang="fr">Indique le titre de la monographie en série hébergeant le document</rdfs:comment>
-        <rdfs:label xml:lang="en">istex:seriesTitle</rdfs:label>
-    </owl:DatatypeProperty>
-    
    
    <!-- https://data.istex.fr/ontology/istex#tool -->
 
