@@ -94,12 +94,12 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
     
     <owl:Ontology rdf:about="https://data.istex.fr/ontology/istex#">
         <dc:rights>All rights reserved. Licence Etalab</dc:rights>
-        <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <dc:license rdf:resource="https://www.etalab.gouv.fr/licence-ouverte-open-licence"/>
         <dc:contributor>
             <foaf:Person>
                 <foaf:name>Stephanie GREGORIO</foaf:name>
                 <foaf:givenName>Stephanie</foaf:givenName>
-                <foaf:familyName>GREGORIO</foaf:familyName>
+                <foaf:familyName>Gregorio</foaf:familyName>
                 <foaf:mbox rdf:resource="mailto:stephanie.gregorio@inist.fr"/>
             </foaf:Person>
         </dc:contributor>
@@ -107,17 +107,20 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
             <foaf:Person>
                 <foaf:name>François PARMENTIER</foaf:name>
                 <foaf:givenName>François</foaf:givenName>
-                <foaf:familyName>PARMENTIER</foaf:familyName>
+                <foaf:familyName>Parmentier</foaf:familyName>
                 <foaf:mbox rdf:resource="mailto:françois.parmentier@inist.fr"/>
             </foaf:Person>
         </dc:contributor>
-        <dc:creator>
+        <dc:contributor>
             <foaf:Person>
-                <foaf:name>Stephanie GREGORIO</foaf:name>
-                <foaf:givenName>Stephanie</foaf:givenName>
-                <foaf:familyName>GREGORIO</foaf:familyName>
-                <foaf:mbox rdf:resource="mailto:stephanie.gregorio@inist.fr"/>
+                <foaf:name>Alain COLLIGNON</foaf:name>
+                <foaf:givenName>Alain</foaf:givenName>
+                <foaf:familyName>Collignon</foaf:familyName>
+                <foaf:mbox rdf:resource="mailto:alain.collignon@inist.fr"/>
             </foaf:Person>
+        </dc:contributor>
+        <dc:creator>
+            <foaf:Organization rdf:about="http://dbpedia.org/resource/Institut_de_l%27information_scientifique_et_technique"/>
         </dc:creator>
         <dc:publisher>
             <foaf:Organization rdf:about="https://www.istex.fr/"/>
@@ -343,7 +346,7 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
         <rdfs:domain rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment xml:lang="en">The end date and time of the item (in ISO 8601 date format).</rdfs:comment>
-        <rdfs:label xml:lang="en">endDate</rdfs:label>
+        <rdfs:label xml:lang="en">end Date</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -354,7 +357,7 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
         <rdfs:domain rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment xml:lang="en">The start date and time of the item (in ISO 8601 date format).</rdfs:comment>
-        <rdfs:label xml:lang="en">startDate</rdfs:label>
+        <rdfs:label xml:lang="en">start Date</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -708,30 +711,8 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
         <rdfs:label xml:lang="fr">Concept Science Metrix</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
     </owl:Class>
+
     
-
-
-    <!-- https://data.istex.fr/ontology/istex#WosConcept -->
-
-    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#WosConcept">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Web of Science</rdfs:comment>
-        <rdfs:comment xml:lang="en">Describes the conceptual structure of the Web of Science categories</rdfs:comment>
-        <rdfs:label xml:lang="en">Web Of Science Concept</rdfs:label>
-        <rdfs:label xml:lang="fr">Concept Web Of Science</rdfs:label>
-        <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
-    </owl:Class>
-    
-    <!-- https://data.istex.fr/ontology/istex#ScopusConcept -->
-
-    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#ScopusConcept">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Scopus</rdfs:comment>
-        <rdfs:comment xml:lang="en">Describes the conceptual structure of the Scopus categories</rdfs:comment>
-        <rdfs:label xml:lang="en">Scopus Concept</rdfs:label>
-        <rdfs:label xml:lang="fr">Concept Scopus</rdfs:label>
-        <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
-    </owl:Class>
     
     <!-- https://data.istex.fr/ontology/istex#ScientificDomain -->
 
@@ -741,6 +722,40 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
         <rdfs:comment xml:lang="en">Describes the scientific fields present on the national license site.</rdfs:comment>
         <rdfs:label xml:lang="en">Scientific Domain</rdfs:label>
         <rdfs:label xml:lang="fr">Domaine scientifique</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
+    </owl:Class>
+    
+    <!-- https://data.istex.fr/ontology/istex#ScopusConcept -->
+    
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#ScopusConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Scopus</rdfs:comment>
+        <rdfs:comment xml:lang="en">Describes the conceptual structure of the Scopus categories</rdfs:comment>
+        <rdfs:label xml:lang="en">Scopus Concept</rdfs:label>
+        <rdfs:label xml:lang="fr">Concept Scopus</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
+    </owl:Class>
+    
+    
+    <!-- https://data.istex.fr/ontology/istex#Vocabulary -->
+    
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#Vocabulary">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit les vocabulaires utilisés dans l'ontologie ISTEX</rdfs:comment>
+        <rdfs:comment xml:lang="en">Describes ISTEX' vocabularies</rdfs:comment>
+        <rdfs:label xml:lang="en">Vocabulary</rdfs:label>
+        <rdfs:label xml:lang="fr">Vocabulaire</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
+    </owl:Class>
+    
+    <!-- https://data.istex.fr/ontology/istex#WosConcept -->
+    
+    <owl:Class rdf:about="https://data.istex.fr/ontology/istex#WosConcept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="fr">Décrit la structure conceptuelle des catégories Web of Science</rdfs:comment>
+        <rdfs:comment xml:lang="en">Describes the conceptual structure of the Web of Science categories</rdfs:comment>
+        <rdfs:label xml:lang="en">Web Of Science Concept</rdfs:label>
+        <rdfs:label xml:lang="fr">Concept Web Of Science</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
     </owl:Class>
 </rdf:RDF>
