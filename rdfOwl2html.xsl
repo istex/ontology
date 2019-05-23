@@ -29,6 +29,7 @@
              v6 : 16/01/2018
              v7 : 09/04/2018
              v8 : 06/06/2018
+             v9 : 23/05/2019
     =======================================================================================-->
     
     <xsl:template match="/" xml:space="default">
@@ -62,7 +63,7 @@
                             <h1>Ontologie ISTEX</h1>
                             <p>Ontologie du projet ISTEX.</p>
                             <!-- attention mettre à jour le nbre de classes et de propriétés lors de chaque rechargement -->
-                            <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(.,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(.,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(.,'istex')])"/> Data Properties.</p>
+                            <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(@rdf:about,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(@rdf:about,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(@rdf:about,'istex')])"/> Data Properties.</p>
                             <a class="btn" href="https://github.com/istex/ontology/blob/master/istexXML.owl"><span>Disponible sur GitHub</span></a>
                         </div>
                         <!-- ajouter logo triplex--> 
@@ -195,14 +196,14 @@
                 
                 <!-- a completer -->
                 <h2>Object Properties</h2>
-                <!-- mettre schema Object Prpoperties + définition-->
+                <!-- mettre schema Object Properties + définition-->
                 <section class="properties card">
                     <ul class="list">
                         <xsl:apply-templates select="owl:ObjectProperty" mode="OP2"/> 
                     </ul>
                 </section>
                 <h2>Data Properties</h2>
-                <!-- mettre schema Data Prpoperties + définition-->
+                <!-- mettre schema Data Properties + définition-->
                 <section class="properties card">
                     <ul class="list">
                         <xsl:apply-templates select="owl:DatatypeProperty" mode="DataP2"/> 
@@ -277,7 +278,7 @@
         </xsl:choose>
     </xsl:template>-->
     <xsl:template match="owl:Class">
-        <xsl:if test="contains(.,'istex')">
+        <xsl:if test="contains(@rdf:about,'istex')">
             <li>
                 <a href="#{substring-after(@rdf:about,'#')}">
                     <span>
@@ -288,7 +289,7 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="owl:ObjectProperty">
-        <xsl:if test="contains(.,'istex')">
+        <xsl:if test="contains(@rdf:about,'istex')">
             <li>
                 <a href="#{substring-after(@rdf:about,'#')}">
                     <span>
@@ -299,7 +300,7 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="owl:DatatypeProperty">
-        <xsl:if test="contains(.,'istex')">
+        <xsl:if test="contains(@rdf:about,'istex')">
             <li>
                 <a href="#{substring-after(@rdf:about,'#')}">
                     <span>
@@ -310,7 +311,7 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="owl:Class" mode="classe2">
-        <xsl:if test="contains(.,'istex')">
+        <xsl:if test="contains(@rdf:about,'istex')">
             <li>
                 <h3 id="{substring-after(@rdf:about,'#')}">
                     <span>
@@ -367,7 +368,7 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="owl:ObjectProperty" mode="OP2">
-        <xsl:if test="contains(.,'istex')">
+        <xsl:if test="contains(@rdf:about,'istex')">
             <li>
                 <h3 id="{substring-after(@rdf:about,'#')}">
                     <span>
@@ -445,7 +446,7 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="owl:DatatypeProperty" mode="DataP2">
-        <xsl:if test="contains(.,'istex')">
+        <xsl:if test="contains(@rdf:about,'istex')">
             <li>
                 <h3 id="{substring-after(@rdf:about,'#')}">
                     <span>
