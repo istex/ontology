@@ -121,7 +121,7 @@
                     </ul>
                 </section>
                 <!-- schema et définitions des classes / objectsproperties et dataproperties -->
-                <p style="text-align:center"><!--<img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720">--></p>
+                <p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"></p>
                 <!-- ontologies importées -->
                 <!-- SG - pour le moment imports des ontologies en dure -->
                 <h2>Ontologies importées</h2>
