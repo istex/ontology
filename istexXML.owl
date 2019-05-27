@@ -497,8 +497,8 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
         <rdfs:comment xml:lang="fr">Indique le nombre de titres bibliographiques par corpus ISTEX</rdfs:comment>
         <rdfs:comment xml:lang="en">Indicates the number of bibliographic titles per ISTEX corpus</rdfs:comment>
-        <rdfs:label xml:lang="fr">nombre de titres</rdfs:label>
         <rdfs:label xml:lang="en">number of titles</rdfs:label>
+        <rdfs:label xml:lang="fr">nombre de titres</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="https://data.istex.fr/ontology/istex#"/>
     </owl:DatatypeProperty>
     
