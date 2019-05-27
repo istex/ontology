@@ -30,6 +30,7 @@
              v7 : 09/04/2018
              v8 : 06/06/2018
              v9 : 23/05/2019
+             v10 : 27/05/2019
     =======================================================================================-->
     
     <xsl:template match="/" xml:space="default">
@@ -40,60 +41,27 @@
     <xsl:template match="rdf:RDF">
         <html lang="fr">
             <head>
-                <title>Ontologie ISTEX</title>
-                <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
-                <!-- <link rel="stylesheet" href="../css/style.css"> -->
-                <link rel="stylesheet" href="/ontology/istex/doremus.css"/>
-                <!--<script type="text/javascript" src="//content-delivery.istex.fr/web-header/main.js"/>-->
-                <meta charset="UTF-8"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <link rel="stylesheet" href="/css/doremus.css" />   
             </head>
             <body>
-                <nav>
-                    <a href="http://data.istex.fr/">data.istex.fr</a>
-                </nav>
-                <div id="pageHead">
-                    <div id="istexTools">
-                        <img src="/img/istex_logo.svg" class="istexLogo" alt=""/>
-                    </div>
-                </div>
                 <section class="cover">
                     <div class="inside">
                         <div class="description">
                             <h1>Ontologie ISTEX</h1>
                             <p>Ontologie du projet ISTEX.</p>
-                            <!-- attention mettre à jour le nbre de classes et de propriétés lors de chaque rechargement -->
                             <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(@rdf:about,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(@rdf:about,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(@rdf:about,'istex')])"/> Data Properties.</p>
-                            <a class="btn" href="https://github.com/istex/ontology/blob/master/istexXML.owl"><span>Disponible sur GitHub</span></a>
                         </div>
-                        <!-- ajouter logo triplex--> 
                         <div class="logo">
                             <a href="http://data.istex.fr">
                                 <img alt="logo data istex" src="/img/ic_Data_ISTEX-2.svg"/>
-                                    <div class="dataIstex">data.istex.fr</div>
+                                    <div class="dataIstex">
+                                        data.istex.fr
+                                    </div>
                             </a>
-                        </div>
+                        </div>   
                     </div>
                 </section>
                 <h1 style="padding-bottom:10px">Sommaire</h1>
-              <!--  <section class="ontologyImports card" style="padding-bottom:10px">
-                    <h1 style="background-color:powderblue;">Ontologies importées</h1>
-               -->     
-                    <!--<dl class="list" style="padding-bottom:10px">
-                        <xsl:apply-templates select="owl:Ontology"/>
-                    </dl>-->
-                    
-               <!--      <ul class="list">
-                        <li style="padding-bottom:10px"><a href="http://www.w3.org/ns/dcat">DCAT: </a><i>conçu pour faciliter l'interopérabilité entre les catalogues de données publiés sur le Web</i></li>
-                        <li style="padding-bottom:10px"><a href="http://purl.org/ontology/bibo/">BIBO: </a><i>fournit les principaux concepts et propriétés pour décrire des références bibliographiques (livres, articles, etc.)</i></li>
-                        <li style="padding-bottom:10px"><a href="http://schema.org">SCHEMA: </a><i>a pour mission de créer, maintenir et promouvoir des schémas pour des données structurées sur le Web</i></li>
-                        <li style="padding-bottom:10px"><a href="http://www.w3.org/ns/prov">PROV: </a><i>décrit les informations de provenance sur le web</i></li>
-                        <li style="padding-bottom:10px"><a href="http://www.w3.org/2004/02/skos/core">SKOS: </a><i>est un modèle de données commun pour le partage et la liaison de systèmes d'organisation des connaissances</i></li>
-                        <li style="padding-bottom:10px"><a href="http://xmlns.com/foaf/0.1/">FOAF: </a><i>décrit des personnes et les relations qu'elles entretiennent entre elles</i></li>
-                        <li style="padding-bottom:10px"><a href="http://data.opendiscoveryspace.eu/lom_ontology_ods.owl">IEEE LOM: </a><i>décrit des ressources pédagogiques</i></li>
-                        <li style="padding-bottom:10px"><a href="http://www.geonames.org/ontology/documentation.html"> GeoNames: </a><i>ajoute des informations sémantiques géospatiales au W3C</i></li>
-                    </ul>
-                </section>--> 
                 <section class="summary" style="padding-bottom:10px">
                     <h2>Ontologies importées</h2>
                     <ul>
@@ -121,7 +89,7 @@
                     </ul>
                 </section>
                 <!-- schema et définitions des classes / objectsproperties et dataproperties -->
-                <p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"></p>
+                <!--<p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"/></p>-->
                 <!-- ontologies importées -->
                 <!-- SG - pour le moment imports des ontologies en dure -->
                 <h2>Ontologies importées</h2>
@@ -209,55 +177,6 @@
                         <xsl:apply-templates select="owl:DatatypeProperty" mode="DataP2"/> 
                     </ul>
                 </section>
-                <!-- mise en place du footer -->
-                <div id="pageFooter">
-                    
-                    <!-- services -->
-                    <div class="blocUp">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div id="twitter_feed_widget-2" class="widget widget_twitter_feed_widget">
-                                    <a class="twitter-timeline" href="https://twitter.com/Projet_ISTEX"
-                                        data-tweet-limit="1"
-                                        data-chrome="noheader nofooter noborders transparent noscrollbar"
-                                        >
-                                        Tweets de @Projet_ISTEX
-                                    </a>
-                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="text-center">
-                                    <a href="http://www.agence-nationale-recherche.fr/" title="CNRS" target="_blank">
-                                        <img src="/img/investissement_avenir.png" alt="ANR" title="Le site ANR"/>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="text-center">
-                                    <a href="http://www.cnrs.fr/" title="CNRS" target="_blank">
-                                        <img src="/img/cnrs130.png" alt="CNRS" title="Le site du CNRS"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- services END -->
-                    <div class="blocUp">
-                        <div class="row">
-                            <div class="col-sm-4">           
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="text-center">
-                                    2018 data.istex.fr
-                                </div>              
-                            </div>
-                            <div class="col-sm-4">
-                            </div>
-                        </div>
-                    </div>
-                </div>          
-                <!-- Footer - bloc-8 END -->
             </body>
         </html>
     </xsl:template>
