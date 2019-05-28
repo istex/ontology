@@ -279,13 +279,15 @@
                         </xsl:for-each>
                     </xsl:if>
                     <xsl:if test="rdfs:subClassOf">
-                    <li>
-                        <div class="prop"><small>rdfs:subClassOf</small></div>
-                        <div class="obj">
-                            <span>
-                                <xsl:call-template name="subClassOf"/> 
-                        </span></div>
-                    </li>
+                        <xsl:for-each select="rdfs:subClassOf">
+                            <li>
+                                <div class="prop"><small>rdfs:subClassOf</small></div>
+                                <div class="obj">
+                                    <span>
+                                        <xsl:call-template name="subClassOf"/> 
+                                    </span></div>
+                            </li>
+                        </xsl:for-each>
                     </xsl:if>
                 </ul>
             </li>
@@ -483,8 +485,8 @@
         </a>
     </xsl:template>
     <xsl:template name="subClassOf">
-        <a href="{rdfs:subClassOf/@rdf:resource}">
-            <xsl:for-each select="rdfs:subClassOf">
+        <a href="{@rdf:resource}">
+            <xsl:for-each select=".">
                 <xsl:call-template name="onto"/>
             </xsl:for-each>
         </a>
