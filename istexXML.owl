@@ -735,7 +735,8 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
     <!-- https://data.istex.fr/ontology/istex#Vocabulary -->
     
     <owl:Class rdf:about="https://data.istex.fr/ontology/istex#Vocabulary">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="http://rdfs.org/ns/void#Dataset"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/frbr/core#Work"/>
         <rdfs:comment xml:lang="fr">Décrit les vocabulaires utilisés dans l'ontologie ISTEX</rdfs:comment>
         <rdfs:comment xml:lang="en">Describes ISTEX' vocabularies</rdfs:comment>
         <rdfs:label xml:lang="en">Vocabulary</rdfs:label>
