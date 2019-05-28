@@ -470,6 +470,8 @@
                 <xsl:when test="@rdf:resource='http://www.w3.org/2001/XMLSchema#anyURI'">xsd:anyURI</xsl:when>
                 <xsl:when test="@rdf:resource='http://www.w3.org/ns/prov#Activity'">prov:Activity</xsl:when>
                 <xsl:when test="@rdf:resource='http://xmlns.com/foaf/0.1/Agent'">foaf:agent</xsl:when>
+                <xsl:when test="@rdf:resource='http://rdfs.org/ns/void#Dataset'">void:Dataset</xsl:when>
+                <xsl:when test="@rdf:resource='http://purl.org/vocab/frbr/core#Work'">frbr:Work</xsl:when>
             </xsl:choose>
     </xsl:template>
     <xsl:template name="domain">
