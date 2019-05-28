@@ -39,7 +39,7 @@
     
     <!-- debut des templates -->
     <xsl:template match="rdf:RDF">
-        <html lang="fr">
+        <html>
             <head>
                 <link rel="stylesheet" href="/css/doremus.css" />   
             </head>
@@ -89,6 +89,7 @@
                     </ul>
                 </section>
                 <!-- schema et définitions des classes / objectsproperties et dataproperties -->
+                <xsl:comment>Ne pas oublier lien vers google draw<!--<p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"></p>--></xsl:comment>
                 <!--<p style="text-align:center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vRduIKz3kT4Ax2RTnFpp88nCEFzlNhyzpsdXMyLTL5-bVTzaTCWUrqbAA1LWMAzGCMwWFqxaecsEnzo/pub?w=960&h=720"/></p>-->
                 <!-- ontologies importées -->
                 <!-- SG - pour le moment imports des ontologies en dure -->
@@ -243,35 +244,39 @@
                     </a>
                 </h3>
                 <ul class="features">
-                    <xsl:if test="rdfs:comment">
-                    <li>
-                        <div class="prop">
-                            <small>rdfs:comment</small>
-                        </div>
-                        <div class="obj">
-                            <span>
-                                <xsl:value-of select="rdfs:comment"/>
-                                <xsl:if test="rdfs:comment/@xml:lang">
-                                    <small>@<xsl:value-of select="rdfs:comment/@xml:lang"/></small>
-                                </xsl:if>
-                            </span>
-                        </div>
-                    </li>
-                    </xsl:if>
                     <xsl:if test="rdfs:label">
+                        <xsl:for-each select="rdfs:label">
                         <li>
                             <div class="prop">
                                 <small>rdfs:label</small>
                             </div>
                             <div class="obj">
                                 <span>
-                                    <xsl:value-of select="rdfs:label"/>
+                                    <xsl:value-of select="."/>
                                 </span>
-                                <xsl:if test="rdfs:label/@xml:lang">
-                                    <small>@<xsl:value-of select="rdfs:label/@xml:lang"/></small>
+                                <xsl:if test="@xml:lang">
+                                    <small>@<xsl:value-of select="@xml:lang"/></small>
                                 </xsl:if>
                             </div>
                         </li>
+                        </xsl:for-each>
+                    </xsl:if>
+                    <xsl:if test="rdfs:comment">
+                        <xsl:for-each select="rdfs:comment">
+                            <li>
+                                <div class="prop">
+                                    <small>rdfs:comment</small>
+                                </div>
+                                <div class="obj">
+                                    <span>
+                                        <xsl:value-of select="."/>
+                                        <xsl:if test="@xml:lang">
+                                            <small>@<xsl:value-of select="@xml:lang"/></small>
+                                        </xsl:if>
+                                    </span>
+                                </div>
+                            </li>
+                        </xsl:for-each>
                     </xsl:if>
                     <xsl:if test="rdfs:subClassOf">
                     <li>
@@ -300,20 +305,39 @@
                     </a>
                 </h3>
                 <ul class="features">
-                    <xsl:if test="rdfs:comment">
+                    <xsl:if test="rdfs:label">
+                        <xsl:for-each select="rdfs:label">
                         <li>
                             <div class="prop">
-                                <small>rdfs:comment</small>
+                                <small>rdfs:label</small>
                             </div>
                             <div class="obj">
                                 <span>
-                                    <xsl:value-of select="rdfs:comment"/>
-                                    <xsl:if test="rdfs:comment/@xml:lang">
-                                        <small>@<xsl:value-of select="rdfs:comment/@xml:lang"/></small>
-                                    </xsl:if>
+                                    <xsl:value-of select="."/>
                                 </span>
+                                <xsl:if test="@xml:lang">
+                                    <small>@<xsl:value-of select="@xml:lang"/></small>
+                                </xsl:if>
                             </div>
                         </li>
+                        </xsl:for-each>
+                    </xsl:if>
+                    <xsl:if test="rdfs:comment">
+                        <xsl:for-each select="rdfs:comment">
+                            <li>
+                                <div class="prop">
+                                    <small>rdfs:comment</small>
+                                </div>
+                                <div class="obj">
+                                    <span>
+                                        <xsl:value-of select="."/>
+                                        <xsl:if test="@xml:lang">
+                                            <small>@<xsl:value-of select="@xml:lang"/></small>
+                                        </xsl:if>
+                                    </span>
+                                </div>
+                            </li>
+                        </xsl:for-each>
                     </xsl:if>
                     <xsl:if test="rdfs:domain">
                         <li>
@@ -324,21 +348,6 @@
                                 <span>
                                     <xsl:call-template name="domain"/> 
                                 </span>
-                            </div>
-                        </li>
-                    </xsl:if>
-                    <xsl:if test="rdfs:label">
-                        <li>
-                            <div class="prop">
-                                <small>rdfs:label</small>
-                            </div>
-                            <div class="obj">
-                                <span>
-                                    <xsl:value-of select="rdfs:label"/>
-                                </span>
-                                <xsl:if test="rdfs:label/@xml:lang">
-                                    <small>@<xsl:value-of select="rdfs:label/@xml:lang"/></small>
-                                </xsl:if>
                             </div>
                         </li>
                     </xsl:if>
@@ -378,20 +387,39 @@
                     </a>
                 </h3>
                 <ul class="features">
-                    <xsl:if test="rdfs:comment">
+                    <xsl:if test="rdfs:label">
+                        <xsl:for-each select="rdfs:label">
                         <li>
                             <div class="prop">
-                                <small>rdfs:comment</small>
+                                <small>rdfs:label</small>
                             </div>
                             <div class="obj">
                                 <span>
-                                    <xsl:value-of select="rdfs:comment"/>
-                                    <xsl:if test="rdfs:comment/@xml:lang">
-                                        <small>@<xsl:value-of select="rdfs:comment/@xml:lang"/></small>
-                                    </xsl:if>
+                                    <xsl:value-of select="."/>
                                 </span>
+                                <xsl:if test="@xml:lang">
+                                    <small>@<xsl:value-of select="@xml:lang"/></small>
+                                </xsl:if>
                             </div>
                         </li>
+                        </xsl:for-each>
+                    </xsl:if>
+                    <xsl:if test="rdfs:comment">
+                        <xsl:for-each select="rdfs:comment">
+                            <li>
+                                <div class="prop">
+                                    <small>rdfs:comment</small>
+                                </div>
+                                <div class="obj">
+                                    <span>
+                                        <xsl:value-of select="."/>
+                                        <xsl:if test="@xml:lang">
+                                            <small>@<xsl:value-of select="@xml:lang"/></small>
+                                        </xsl:if>
+                                    </span>
+                                </div>
+                            </li>
+                        </xsl:for-each>
                     </xsl:if>
                     <xsl:if test="rdfs:domain">
                         <li>
@@ -402,21 +430,6 @@
                                 <span>
                                     <xsl:call-template name="domain"/>  
                                 </span>
-                            </div>
-                        </li>
-                    </xsl:if>
-                    <xsl:if test="rdfs:label">
-                        <li>
-                            <div class="prop">
-                                <small>rdfs:label</small>
-                            </div>
-                            <div class="obj">
-                                <span>
-                                    <xsl:value-of select="rdfs:label"/>
-                                </span>
-                                <xsl:if test="rdfs:label/@xml:lang">
-                                    <small>@<xsl:value-of select="rdfs:label/@xml:lang"/></small>
-                                </xsl:if>
                             </div>
                         </li>
                     </xsl:if>
@@ -434,7 +447,7 @@
                             <div class="prop"><small>rdfs:subClassOf</small></div>
                             <div class="obj">
                                 <span>
-                                   <xsl:call-template name="subClassOf"/> 
+                                    <xsl:call-template name="subClassOf"/> 
                                 </span></div>
                         </li>
                     </xsl:if>
