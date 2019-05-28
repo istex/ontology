@@ -49,7 +49,7 @@
                         <div class="description">
                             <h1>Ontologie ISTEX</h1>
                             <p>Ontologie du projet ISTEX.</p>
-                            <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(@rdf:about,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(@rdf:about,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(@rdf:about,'istex')])"/> Data Properties.</p>
+                            <p>Cette ontologie définit <xsl:value-of select="count(owl:Class[contains(@rdf:about,'istex')])"/> Classes, <xsl:value-of select="count(owl:ObjectProperty[contains(@rdf:about,'istex')])"/> Object Properties et <xsl:value-of select="count(owl:DatatypeProperty[contains(@rdf:about,'istex')])"/> Data Properties.</p><a class="btn" href="https://github.com/istex/ontology/blob/master/istexXML.owl"><span>Disponible sur GitHub</span></a>
                         </div>
                         <div class="logo">
                             <a href="http://data.istex.fr">
