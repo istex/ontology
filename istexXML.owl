@@ -368,7 +368,7 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
     
     <!-- https://data.istex.fr/ontology/istex#addresseeWork -->
 
-    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#accessURL">
+    <owl:DatatypeProperty rdf:about="https://data.istex.fr/ontology/istex#addresseeWork">
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
         <rdfs:comment xml:lang="fr">Organisme pour lequel est constitué le corpus</rdfs:comment>
