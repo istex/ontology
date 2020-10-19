@@ -43,7 +43,7 @@
     
     <owl:Ontology rdf:about="https://data.istex.fr/ontology/istex#">
         <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-04-11</dc:issued>
-        <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-05-28</dc:modified>
+        <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-19</dc:modified>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
         <owl:versionIRI rdf:resource="https://data.istex.fr/ontology/istex"/>
         <rdfs:comment xml:lang="fr">v 2.1 19-10-2020 Import 4 ontologies:
