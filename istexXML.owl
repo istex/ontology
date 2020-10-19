@@ -28,6 +28,10 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+        <owl:imports rdf:resource="https://schema.org/version/latest/schemaorg-current-http.rdf"/>
+        <owl:imports rdf:resource="http://data.opendiscoveryspace.eu/lom_ontology_ods.owl"/>
+        <owl:imports rdf:resource="http://www.geonames.org/ontology/ontology_v3.2.rdf"/>
     </owl:Ontology>
     
     <owl:Ontology rdf:about="https://data.istex.fr/ontology/istex#">
@@ -42,7 +46,13 @@
         <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-05-28</dc:modified>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
         <owl:versionIRI rdf:resource="https://data.istex.fr/ontology/istex"/>
-        <rdfs:comment xml:lang="fr">v 2.0 28-05-2019 Ajouts des recommandations du Linked Open Vocabularies (LOV)
+        <rdfs:comment xml:lang="fr">v 2.1 19-10-2020 Import 4 ontologies:
+                                                  - dcterms --> <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+                                                  - schema --> <owl:imports rdf:resource="https://schema.org/version/latest/schemaorg-current-http.rdf"/>
+                                                  - IEEE Lom --> <owl:imports rdf:resource="http://data.opendiscoveryspace.eu/lom_ontology_ods.owl"/>
+                                                  - Geonames --> <owl:imports rdf:resource="http://www.geonames.org/ontology/ontology_v3.2.rdf"/>
+        
+v 2.0 28-05-2019 Ajouts des recommandations du Linked Open Vocabularies (LOV)
 
 v 1.9 17-12-2018 Ajout de la propriété istex:eISBN
 
