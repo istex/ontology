@@ -122,14 +122,6 @@ V 1.0 11-04-2017 Première version de l'ontologie basée sur bibo, skos et prov-
                 <foaf:mbox rdf:resource="mailto:françois.parmentier@inist.fr"/>
             </foaf:Person>
         </dc:contributor>
-        <dc:contributor>
-            <foaf:Person>
-                <foaf:name>Alain COLLIGNON</foaf:name>
-                <foaf:givenName>Alain</foaf:givenName>
-                <foaf:familyName>Collignon</foaf:familyName>
-                <foaf:mbox rdf:resource="mailto:alain.collignon@inist.fr"/>
-            </foaf:Person>
-        </dc:contributor>
         <dc:creator>
             <foaf:Organization rdf:about="http://dbpedia.org/resource/Institut_de_l%27information_scientifique_et_technique"/>
         </dc:creator>
